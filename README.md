@@ -1,11 +1,11 @@
 # 🌼 Animatronic Flower Garden
 
-An interactive Robotics project where flowers react to environmental light using sensors, actuators and embedded control systems.
+An interactive Robotics project where flowers react to environmental light, motion, and wind using sensors.
 
 ---
 
 ## 📌 Project Description
-The Animatronic Flower Garden is a kinetic sculpture consisting of multiple robotic flowers that respond dynamically to environmental stimuli such as light, wind, and human presence.
+The Animatronic Flower Garden is a kinetic sculpture consisting of three robotic flowers that respond dynamically to environmental stimuli such as light, wind, and human presence.
 
 Each flower operates as an independent embedded system, capable of:
 - Opening and closing petals based on light (phototropism)
@@ -40,8 +40,7 @@ Each flower functions as a **self-contained unit**:
   - Closing
 
 ### 🔹 Outputs (Actuators)
-- 🌼 4x SG90 servos → control petal motion
-- 🔄 Stepper motor (28BYJ-48) → controls stem sway
+- 🌼 x6 SG90 servos → control petal motion & stem sway
 
 ---
 
@@ -49,51 +48,53 @@ Each flower functions as a **self-contained unit**:
 
 Each flower includes:
 
-- 4x Petal blades (servo-driven)
-- Linkage rods connecting servo → petals
+- 4x Petal blades
+- Linkage rods connecting central-hub → petals
 - Central hub (bloom mechanism)
-- Spur gear system for stem motion
-- Base housing for electronics
+- Rack and pinion gear system for blooming motion
+- Push rod to move flower in swaying motion
 
 → Designed for **3D printing and modular assembly** 
-
----
-
-## ⚙️ Current Progress
-- ✅ Servo-controlled petal opening/closing
-- ✅ Light-based blooming behavior
-- ✅ Multi-servo synchronization
-- ✅ Smooth motion (easing)
 
 ---
 
 ## 🔌 Hardware Components
 
 ### Electronics
-- Arduino Nano (1 per flower)
-- SG90 Micro Servos (×4 per flower)
-- 28BYJ-48 Stepper Motor + Driver
-- LDR (light sensor)
+- x1 Arduino Nano
+- x6 SG90 Micro Servos (×2 per flower)
+- LDR (light sensor) -> 10kΩ resistor 
 - PIR Motion Sensor
 - Microphone module
 
 ### Power
-- 5V external power supply (recommended for stability)
+- 5V external power supply -> Not yet 
 
 ### Mechanical / Structural
-- 3D printed petals, hub, base, linkage system
-- 3mm rods (pivot joints)
-- Screws, nuts, washers
+- 3D printed petals, hubs, linkage systems, gears, pivot rounded bottoms, pivot sockets, push rods, stems 
+- Eyeglass pins, servo screws and metal screws, nuts
+- Plastic pot, moss and foam
 
 ---
 
 ## 💻 Software Design
 
 ### Key Features
-- Sensor polling (light, motion, sound)
-- State machine-based behavior system
-- Smooth servo motion using incremental stepping
-- Reactive behaviors based on thresholds
+
+## Light-Responsive Blooming (LDR-Based)
+- Flowers automatically open in bright light and close in darkness
+- Uses a calibrated LDR + voltage divider circuit for reliable light sensing
+- Implements binary threshold + hysteresis logic to prevent flickering or unstable movement
+
+## Motion-Triggered Defensive Recoil (PIR Sensor)
+- Detects nearby movement using a PIR motion sensor
+- Flowers perform a rapid “recoil” closing behavior when motion is detected
+- Includes timed hold and recovery for realistic, responsive interaction
+
+## Sound-Activated Sway (Microphone Sensor)
+- Uses a microphone to detect wind-like sound input
+- Triggers a temporary swaying motion to simulate environmental interaction
+- Filters noise using amplitude-based detection to avoid constant activation
 
 ### Example States
 - **Dormant** → low light
