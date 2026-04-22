@@ -18,8 +18,8 @@ const int ldrPin = A4;
 const int micPin = A5;
 
 // BLOOM CALIBRATION
-const int OPEN_POS = 90;
-const int NORMAL_CLOSE = 10;
+const int OPEN_POS = 110;
+const int NORMAL_CLOSE = 0;
 const int RECOIL_CLOSE = 0;
 
 // SWAY CALIBRATION
@@ -31,7 +31,7 @@ const int LIGHT_OPEN_THRESHOLD  = 800;
 const int LIGHT_CLOSE_THRESHOLD = 650;
 
 // MIC CALIBRATION
-const int micThreshold = 130;
+const int micThreshold = 300;
 const unsigned long swayDuration = 1500;
 
 // TIMING
