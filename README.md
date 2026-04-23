@@ -17,9 +17,9 @@ This project combines **mechanical design, embedded systems, and real-time contr
 ---
 
 ## 👨‍💻 Team
-- Denice Garcia  
-- Arique Heemal
-- George Morillo   
+- Denice Garcia -> CAD designing, structure building and assembling and decorating
+- Arique Heemal -> 3D printing, soldering and decorating
+- George Morillo -> Building state-machine, coding and hardware assembling
 
 ## 🧠 System Architecture
 
